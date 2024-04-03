@@ -93,4 +93,26 @@ Funcionalidade: Acessando pagina Web RockLov
     
     Exemplos:
         | Equipamento   | Categoria          | Valor_Diaria  | Caminho_Arquivo |
-        | Violão        | Cordas             | 100           | Violão.png      |  
+        | Violão        | Cordas             | 100           | Violão.png      | 
+
+    @Remover_Anuncio
+    Cenario: Remover Anuncios
+    Dado que tenho um anuncio indesejado: 
+        | thumb     | telecaster.jpg |
+        | nome      | Telecaster     |
+        | categoria | Cordas         |
+        | preco     | 50             |
+    Quando eu solicito a exclusão desse item
+        E confirmo a exclusão
+    Então não devo ver esse item no meu dashboard
+
+    @Desistir_exclusao
+    Cenario: Desistir da remoção do anuncio
+    Dado que tenho um anuncio indesejado: 
+        | thumb     | telecaster.jpg |
+        | nome      | Telecaster     |
+        | categoria | Cordas         |
+        | preco     | 50             |
+    Quando eu solicito a exclusão desse item
+        E não confirmo a solicitação
+    Então devo ver esse item no meu dashboard
