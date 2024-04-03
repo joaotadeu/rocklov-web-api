@@ -28,7 +28,7 @@ RSpec.configure do |config|
       { name: "João Tadeu", email: "joaotadeu@outlook.com", password: to_md5("pwd123") },
       { name: "Manu Anjos", email: "manuanjos@gmail.com", password: to_md5("pwd123") },
       { name: "Enzo Anjos", email: "enzo@gmail.com", password: to_md5("pwd123") },
-      { name: "Edward Cullen", email: "ed@gmail.com", password: to_md5("pwd123") },
+      { name: "Teste", email: "teste@gmail.com", password: to_md5("123") },
     ]
 
     MongoDB.new.drop_danger
