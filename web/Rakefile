@@ -1,0 +1,22 @@
+require "digest/md5"
+require_relative "/Users/joaotadeu/Documents/Workspace/Cucumber-web_api-ruby/web/features/support/libs/mongo"
+
+def to_md5(pass)
+  return Digest::MD5.hexdigest(pass)
+end
+
+task :test do
+    puts "Executando uma tarefa de testes"
+end
+
+task :local_seeds do
+
+    users = [
+      { name: "Diana Anjos", email: "dianaanjos@hotmail.com", password: to_md5("pwd123") },
+      { name: "Teste", email: "teste@gmail.com", password: to_md5("123") },
+    ]
+    MongoDB.new.drop_danger
+    MongoDB.new.insert_users(users)
+
+    sh "cucumber -t @RockLov"
+end
