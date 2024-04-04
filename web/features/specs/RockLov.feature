@@ -94,4 +94,3 @@ Funcionalidade: Acessando pagina Web RockLov
     Exemplos:
         | Equipamento   | Categoria          | Valor_Diaria  | Caminho_Arquivo |
         | Violão        | Cordas             | 100           | Violão.png      | 
-
