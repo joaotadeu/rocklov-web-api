@@ -1,3 +1,8 @@
+Dado("Login com {string} e {string}") do |email, password|
+  @NavegarRockLov.AcessarPaginaRockLovLogin
+  @NavegarRockLov.LoginComSucesso(email, senha)
+end
+
 Dado('que estou na página de login do RockLov') do
     @NavegarRockLov.AcessarPaginaRockLovLogin
 end
@@ -51,4 +56,21 @@ end
 E('valido que apos quatro anuncios é visto a mensagem {string}') do |msg_falha_campo|
   mensagem_esperada = @NavegarRockLov.MensagemEsperadaCadastroSemSucesso
   expect(mensagem_esperada).to eql(msg_falha_campo)
+end
+
+Dado('que tenho um anuncio indesejado:') do |table|
+  # table is a Cucumber::MultilineArgument::DataTable
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Quando('eu solicito a exclusão desse item') do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+E('confirmo a exclusão') do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Então('não devo ver esse item no meu dashboard') do
+  pending # Write code here that turns the phrase above into concrete actions
 end
