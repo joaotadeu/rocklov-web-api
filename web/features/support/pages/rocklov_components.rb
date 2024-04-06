@@ -68,4 +68,17 @@ class NavegarRockLov < SitePrism::Page
     find('.equipo-list > li:nth-child(1) > i:nth-child(4)').click
     click_on 'Sim'
     end
+
+    def ConfirmoExclusao
+        click_on "Sim"
+    end
+
+    def SolicitoExclusao(name)
+        equipo = find(".equipo-list li", text: name)
+        equipo.find(".delete-icon").click
+    end
+
+    def ValidacaoEquipo?(name)
+        return result = page.has_no_css?(".equipo-list li", text: name)
+    end
 end

@@ -9,27 +9,29 @@ end
 
 E('farei o cadastro de um anuncio aleatorio') do |table|
   user_id = page.execute_script("return localStorage.getItem('user')")
-  log user_id
   thumbnail = File.open(File.join(Dir.pwd, "features/support/images", table.rows_hash[:thumb]), "rb")
-  equipo = {
+  @equipo = {
       thumbnail: thumbnail,
       name: table.rows_hash[:nome],
       category: table.rows_hash[:categoria],
       price: table.rows_hash[:valor],
   }
-  EquiposService.new.create(equipo, user_id)
-end
-
-E('confirmo a exclusão') do
-  pending # Write code here that turns the phrase above into concrete actions
+  EquiposService.new.postCreateEquipo(@equipo, user_id)
+  # visit current_path 
 end
 
 Então('solicito a exclusão do item') do
-  pending # Write code here that turns the phrase above into concrete actions
+  @NavegarRockLov.SolicitoExclusao(@equipo[:name])
+end
+
+E('confirmo a exclusão') do
+  @NavegarRockLov.ConfirmoExclusao
 end
 
 Então('não devo ver o anuncio no meu dashboard') do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(
+    @NavegarRockLov.ValidacaoEquipo?(@equipo[:name])
+    ). to be true
 end
 
 Dado('que estou na página de cadastro do RockLov') do

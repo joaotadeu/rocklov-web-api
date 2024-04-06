@@ -1,7 +1,7 @@
 require_relative 'base_service'
 
 class EquiposService < BaseService
-    def create(equipo, user_id)
+    def postCreateEquipo(equipo, user_id)
 
         payload = equipo
 

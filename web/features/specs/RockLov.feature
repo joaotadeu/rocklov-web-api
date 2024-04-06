@@ -101,10 +101,10 @@ Funcionalidade: Acessando pagina Web RockLov
     Dado que estou na página de login do RockLov
     Quando preencho minhas credenciais "teste@gmail.com" e "123"
         E farei o cadastro de um anuncio aleatorio
-            | thumb      | Guitarra.png     |
-            | nome       | Telecaster       |
-            | categoria  | Cordas           |
-            | valor      | 50               |
+            | thumb      | Bateria.png    |
+            | nome       | Bateria        |
+            | categoria  | Baterias       |
+            | valor      | 50             |
     Então solicito a exclusão do item
         E confirmo a exclusão
-    Então não devo ver o anuncio no meu dashboard
+        E não devo ver o anuncio no meu dashboard
