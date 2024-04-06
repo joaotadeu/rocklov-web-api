@@ -17,10 +17,10 @@ E('farei o cadastro de um anuncio aleatorio') do |table|
       price: table.rows_hash[:valor],
   }
   EquiposService.new.postCreateEquipo(@equipo, user_id)
-  # visit current_path 
 end
 
 Então('solicito a exclusão do item') do
+  visit current_url
   @NavegarRockLov.SolicitoExclusao(@equipo[:name])
 end
 
@@ -83,4 +83,14 @@ end
 E('valido que apos quatro anuncios é visto a mensagem {string}') do |msg_falha_campo|
   mensagem_esperada = @NavegarRockLov.MensagemEsperadaCadastroSemSucesso
   expect(mensagem_esperada).to eql(msg_falha_campo)
+end
+
+Então('não confirmo a exclusão') do
+  @NavegarRockLov.CancelExclusao
+end
+
+Então('esse item deve permanecer no meu dashboard') do
+  expect(
+    @NavegarRockLov.ValidacaoEquipo?(@equipo[:name])
+    ). to be false
 end

@@ -108,3 +108,16 @@ Funcionalidade: Acessando pagina Web RockLov
     Então solicito a exclusão do item
         E confirmo a exclusão
         E não devo ver o anuncio no meu dashboard
+
+    @Desistir_remover_anuncio_web_api
+       Cenario: Acessar pagina rocklov na plataforma web efetuar o login e desistir de remover anuncio
+    Dado que estou na página de login do RockLov
+    Quando preencho minhas credenciais "teste@gmail.com" e "123"
+        E farei o cadastro de um anuncio aleatorio
+            | thumb      | Bateria.png    |
+            | nome       | Bateria        |
+            | categoria  | Baterias       |
+            | valor      | 50             |
+    Então solicito a exclusão do item
+        Mas não confirmo a exclusão
+        E esse item deve permanecer no meu dashboard

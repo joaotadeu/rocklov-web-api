@@ -73,6 +73,10 @@ class NavegarRockLov < SitePrism::Page
         click_on "Sim"
     end
 
+    def CancelExclusao
+        click_on "Não"
+    end
+    
     def SolicitoExclusao(name)
         equipo = find(".equipo-list li", text: name)
         equipo.find(".delete-icon").click
