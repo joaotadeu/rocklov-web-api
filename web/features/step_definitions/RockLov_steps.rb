@@ -7,6 +7,31 @@ Dado('que estou na página de login do RockLov') do
     @NavegarRockLov.AcessarPaginaRockLovLogin
 end
 
+E('farei o cadastro de um anuncio aleatorio') do |table|
+  user_id = page.execute_script("return localStorage.getItem('user')")
+  log user_id
+  thumbnail = File.open(File.join(Dir.pwd, "features/support/images", table.rows_hash[:thumb]), "rb")
+  equipo = {
+      thumbnail: thumbnail,
+      name: table.rows_hash[:nome],
+      category: table.rows_hash[:categoria],
+      price: table.rows_hash[:valor],
+  }
+  EquiposService.new.create(equipo, user_id)
+end
+
+E('confirmo a exclusão') do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Então('solicito a exclusão do item') do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Então('não devo ver o anuncio no meu dashboard') do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
 Dado('que estou na página de cadastro do RockLov') do
     @NavegarRockLov.AcessarPaginaRockLovCadastro
 end
@@ -56,21 +81,4 @@ end
 E('valido que apos quatro anuncios é visto a mensagem {string}') do |msg_falha_campo|
   mensagem_esperada = @NavegarRockLov.MensagemEsperadaCadastroSemSucesso
   expect(mensagem_esperada).to eql(msg_falha_campo)
-end
-
-Dado('que tenho um anuncio indesejado:') do |table|
-  # table is a Cucumber::MultilineArgument::DataTable
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Quando('eu solicito a exclusão desse item') do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-E('confirmo a exclusão') do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Então('não devo ver esse item no meu dashboard') do
-  pending # Write code here that turns the phrase above into concrete actions
 end

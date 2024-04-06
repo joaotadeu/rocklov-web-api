@@ -11,3 +11,4 @@ gem "allure-cucumber"
 gem "site_prism"
 gem 'report_builder'
 gem 'mongo'
+gem 'httparty', '0.18.1'

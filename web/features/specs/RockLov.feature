@@ -81,7 +81,7 @@ Funcionalidade: Acessando pagina Web RockLov
         | Guitarra     | Cordas             |               | Guitarra.png    | 💰 Informe o valor da diária         |
         |              | Baterias           | 350           | Bateria.png     | 🎸 Informe a descrição do anúncio!   |
     
-    @deletar_anuncio
+    @deletar_anuncio_web
     Esquema do Cenario: Acessar pagina rocklov web e efetuar o login e deletar um anuncio
     Dado que estou na página de login do RockLov
     Quando preencho minhas credenciais "teste@gmail.com" e "123"
@@ -94,3 +94,17 @@ Funcionalidade: Acessando pagina Web RockLov
     Exemplos:
         | Equipamento   | Categoria          | Valor_Diaria  | Caminho_Arquivo |
         | Violão        | Cordas             | 100           | Violão.png      | 
+
+
+    @Remover_anuncio_web_api
+    Cenario: Acessar pagina rocklov na plataforma web efetuar o login e remover um anuncio
+    Dado que estou na página de login do RockLov
+    Quando preencho minhas credenciais "teste@gmail.com" e "123"
+        E farei o cadastro de um anuncio aleatorio
+            | thumb      | Guitarra.png     |
+            | nome       | Telecaster       |
+            | categoria  | Cordas           |
+            | valor      | 50               |
+    Então solicito a exclusão do item
+        E confirmo a exclusão
+    Então não devo ver o anuncio no meu dashboard
