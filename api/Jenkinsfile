@@ -18,13 +18,13 @@ pipeline {
                 junit 'api/logs/report.xml'
             }
         }
-        stage ('UAT') {
+        stage('UAT') {
             steps {
                 echo 'Aguardando testes de aceitação.'
                 input message: 'podemos ir para produção?'
             }
         }
-        stage {
+        stage('Produção') {
             steps {
                 echo 'Api pronta para produção'
             }
