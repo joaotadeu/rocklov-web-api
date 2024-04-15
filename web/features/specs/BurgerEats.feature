@@ -1,5 +1,5 @@
 #language: pt
-@RockLov
+@BurgesEats
 Funcionalidade: Acessando pagina WEB e cadastrando parceiro para entregas
     Acessando site de cadastro
     cadastrando parceiro

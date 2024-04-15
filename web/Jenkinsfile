@@ -1,0 +1,38 @@
+pipeline {
+    agent {
+        docker {
+            image 'ruby'
+            args '--network rocklov-network'
+        }
+    }
+
+    stages {
+        stage('Prepation') {
+            steps {
+                sh 'cd web && bundle install'
+            }
+        }
+        stage('Testing') {
+            steps {
+                sh 'cd web && cucumber @'
+                junit 'api/logs/report.xml'
+            }
+        }
+        stage('UAT') {
+            steps {
+                echo 'Aguardando testes de aceitação.'
+                input message: 'podemos ir para produção?'
+            }
+        }
+        stage('Produção') {
+            steps {
+                echo 'WebApp pronta para produção'
+            }
+        }
+    }
+    // post {
+    //     always {
+    //         junit 'api/logs/report.xml'
+    //     }
+    // }
+}

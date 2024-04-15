@@ -1,6 +1,6 @@
 #language: pt
 
-@RockLov
+@RockLov_Web
 Funcionalidade: Acessando pagina Web RockLov
     Acessando site RockLov
     Acessar com credenciais
@@ -81,21 +81,6 @@ Funcionalidade: Acessando pagina Web RockLov
         | Guitarra     | Cordas             |               | Guitarra.png    | 💰 Informe o valor da diária         |
         |              | Baterias           | 350           | Bateria.png     | 🎸 Informe a descrição do anúncio!   |
     
-    @deletar_anuncio_web
-    Esquema do Cenario: Acessar pagina rocklov web e efetuar o login e deletar um anuncio
-    Dado que estou na página de login do RockLov
-    Quando preencho minhas credenciais "teste@gmail.com" e "123"
-    E sou direcionado para o dashboard e visualizo a seguinte mensagem "Let`s Rock Baby"
-    Então efetuo tentativa de cadastro do anuncio
-        | Equipamento   | Categoria   | Valor_Diaria    | Caminho_Arquivo   |
-        | <Equipamento> | <Categoria> | <Valor_Diaria>  | <Caminho_Arquivo> | 
-    Então efetuo a operação deletar anuncio
-    
-    Exemplos:
-        | Equipamento   | Categoria          | Valor_Diaria  | Caminho_Arquivo |
-        | Violão        | Cordas             | 100           | Violão.png      | 
-
-
     @Remover_anuncio_web_api
     Cenario: Acessar pagina rocklov na plataforma web efetuar o login e remover um anuncio
     Dado que estou na página de login do RockLov

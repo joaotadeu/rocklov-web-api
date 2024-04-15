@@ -78,6 +78,7 @@ Então('efetuo tentativa de cadastro do anuncio') do |table|
     table.hashes.each do |dados_usuario|
       @NavegarRockLov.CriarAnuncio(dados_usuario['Equipamento'], dados_usuario['Categoria'], dados_usuario['Valor_Diaria'], dados_usuario['Caminho_Arquivo'])
     end
+    MongoDB.new.remove_equipo(@payload[:name], @user_id)
 end
 
 E('valido que apos quatro anuncios é visto a mensagem {string}') do |msg_falha_campo|
