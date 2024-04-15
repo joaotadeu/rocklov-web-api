@@ -4,8 +4,8 @@ class PageStarbugs
     include Capybara::DSL
     include RSpec::Matchers 
   
-    def AbrePaginaStarbugs # "Função" definida utilizando o comando def
-      visit 'https://starbugs.vercel.app/' # Tem a função de visistar a página inicial do projeto
+    def AbrePaginaStarbugs
+      visit 'https://starbugs.vercel.app/'
     end
   
     def ListaCafe
