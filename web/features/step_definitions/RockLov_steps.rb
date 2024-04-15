@@ -54,7 +54,7 @@ end
 
 Então('efetuo a operação deletar anuncio') do
   @NavegarRockLov.DeletarAnuncio
-end
+end 
 
 Então('devo ver a seguinte mensagem {string}') do |mensagem_esperada|
     expect(@NavegarRockLov.MensagemEsperadaTentativaCadastro(mensagem_esperada)).to be true
