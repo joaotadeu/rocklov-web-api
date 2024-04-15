@@ -43,11 +43,14 @@ Dado('devo visualizar todos com componentes disponiveis na tela de cadastro') do
 end
 
 Quando('preencho minhas credenciais {string} e {string}') do |email, senha|
+  @email = email
   @NavegarRockLov.LoginComSucesso(email,senha)
 end
 
 Quando('preencho minhas credenciais de cadastro') do |table|
     table.hashes.each do |dados_usuario|
+      email = dados_usuario['email']
+      @MongoDB.remove_user(email)
       @NavegarRockLov.CadastroRockLov(dados_usuario['nome'], dados_usuario['email'], dados_usuario['senha'])
     end
 end
@@ -75,10 +78,10 @@ Então('valido que fui logado com sucesso') do
 end
 
 Então('efetuo tentativa de cadastro do anuncio') do |table|
-    table.hashes.each do |dados_usuario|
+  table.hashes.each do |dados_usuario|
+      @MongoDB.remove_all_equipos(@email)
       @NavegarRockLov.CriarAnuncio(dados_usuario['Equipamento'], dados_usuario['Categoria'], dados_usuario['Valor_Diaria'], dados_usuario['Caminho_Arquivo'])
     end
-    MongoDB.new.remove_equipo(@payload[:name], @user_id)
 end
 
 E('valido que apos quatro anuncios é visto a mensagem {string}') do |msg_falha_campo|

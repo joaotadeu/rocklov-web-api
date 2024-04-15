@@ -32,4 +32,16 @@ class MongoDB
     user_id = get_user(email)
     @equipos.delete_many({ name: name, user: user_id })
   end
+
+  def get_user_id(email)
+    user = @users.find({ email: email }).first
+    return user[:_id]
+  end
+  
+  def remove_all_equipos(email)
+    user_id = get_user_id(email)
+    @equipos.delete_many({ user: user_id })
+  end
+
 end
+

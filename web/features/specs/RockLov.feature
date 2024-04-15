@@ -17,7 +17,7 @@ Funcionalidade: Acessando pagina Web RockLov
     Dado que estou na página de cadastro do RockLov
     Então devo visualizar todos com componentes disponiveis na tela de cadastro
 
-    @tentativa_cadastro_rocklov
+    @tentativa_cadastro_rocklov_sem_sucesso
     Esquema do Cenario: Acessando e efetuando tentativa de cadastro web rocklov
     Dado que estou na página de cadastro do RockLov
     Quando preencho minhas credenciais de cadastro
@@ -41,7 +41,7 @@ Funcionalidade: Acessando pagina Web RockLov
 
     Exemplos:
         | nome            | email                   | senha | mensagem_esperada |
-        | João Tadeu      | joaoTadeu4@gmail.com    | 321   | Let`s Rock Baby   |
+        | João Tadeu      | teste@gmail.com         | 123   | Let`s Rock Baby   |
         | Manu dos anjos  | manuzinha4@outlook.com  | 123   | Let`s Rock Baby   |
 
     @login_rocklov
