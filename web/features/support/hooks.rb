@@ -1,8 +1,5 @@
 Before do
- @Navegador = Navegador.new
  @FunçõesGenericas = GenericFunctions.new
- @NavegandoAmazon = NavegandoAmazon.new
- @PageStarbugs = PageStarbugs.new
  @NavegarRockLov = NavegarRockLov.new
  @MongoDB = MongoDB.new
 end
